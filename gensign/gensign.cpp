@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-
+#include "src/clamavsig.hpp"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
