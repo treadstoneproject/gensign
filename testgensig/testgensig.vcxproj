@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{03548A08-D2B0-4990-9E7B-5A652B0D3C63}</ProjectGuid>
+    <ProjectGuid>{3B98AEA0-48E9-40FA-8D12-21A924678661}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>gensign</RootNamespace>
+    <RootNamespace>testgensig</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -53,10 +53,14 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>E:\workspacecpp\gensign;E:\workspacecpp\gtest-1.7.0_vcpp13\gtest-1.7.0\include;E:\workspacecpp\boost_1_55_0\boost_1_55_0</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>E:\workspacecpp\gensign\Debug;E:\workspacecpp\gtest-1.7.0_vcpp13\gtest-1.7.0\msvc\gtest\Debug;E:\workspacecpp\boost_1_55_0\boost_1_55_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gtestd.lib;gtest_maind.lib;gensign.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -85,8 +89,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="gensign.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="testgensig.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
