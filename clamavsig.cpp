@@ -29,12 +29,6 @@ bool clamav_sig::parser_sig(const char * sig){
 	return false;
 }
 
-/*
-parser::meta_sigparse & clamav_sig::get_parser_sig(){
-	return *meta_sigparse_;
-}
-*/
-
 bool clamav_sig::writeback(const char * sig){
 	return true;
 }
@@ -49,7 +43,9 @@ bool hdb_sig::filter_type(std::string const& input){
 	md5_sig_virname  sig_seq(boost::fusion::as_nview<0, 1, 2>(meta_sigparse_));
 
 	//rule parser
-	rule_parse_sig = *(boost::spirit::qi::char_ - ':') >> ":" >> *(boost::spirit::qi::char_ - ':') >> ":" >> boost::spirit::qi::char_;
+	rule_parse_sig = *(boost::spirit::qi::char_ - ':') >> ":" >>  // MD5
+									 *(boost::spirit::qi::char_ - ':') >> ":" >>  // Size file.
+                   *(boost::spirit::qi::char_); // Virname
 		
 	iterator_type begin = input.begin();
 	bool ret = boost::spirit::qi::parse(begin, input.end(), rule_parse_sig, sig_seq);
