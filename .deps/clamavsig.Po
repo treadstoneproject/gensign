@@ -1679,7 +1679,11 @@ clamavsig.o: clamavsig.cpp clamavsig.hpp \
  /home/chatsiri/workspacecpp/boost-truck/boost/fusion/view/nview/detail/value_at_impl.hpp \
  /home/chatsiri/workspacecpp/boost-truck/boost/fusion/view/nview/detail/advance_impl.hpp \
  /home/chatsiri/workspacecpp/boost-truck/boost/fusion/view/nview/detail/distance_impl.hpp \
- /home/chatsiri/workspacecpp/boost-truck/boost/fusion/view/nview/detail/equal_to_impl.hpp
+ /home/chatsiri/workspacecpp/boost-truck/boost/fusion/view/nview/detail/equal_to_impl.hpp \
+ logger/logging.hpp /usr/include/c++/4.6/fstream \
+ /usr/include/c++/4.6/x86_64-linux-gnu/./bits/basic_file.h \
+ /usr/include/c++/4.6/x86_64-linux-gnu/./bits/c++io.h \
+ /usr/include/c++/4.6/bits/fstream.tcc /usr/include/c++/4.6/iomanip
 
 clamavsig.hpp:
 
@@ -5140,3 +5144,15 @@ clamavsig.hpp:
 /home/chatsiri/workspacecpp/boost-truck/boost/fusion/view/nview/detail/distance_impl.hpp:
 
 /home/chatsiri/workspacecpp/boost-truck/boost/fusion/view/nview/detail/equal_to_impl.hpp:
+
+logger/logging.hpp:
+
+/usr/include/c++/4.6/fstream:
+
+/usr/include/c++/4.6/x86_64-linux-gnu/./bits/basic_file.h:
+
+/usr/include/c++/4.6/x86_64-linux-gnu/./bits/c++io.h:
+
+/usr/include/c++/4.6/bits/fstream.tcc:
+
+/usr/include/c++/4.6/iomanip:

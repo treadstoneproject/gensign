@@ -11,6 +11,7 @@
 
 #include "gtest/gtest.h"
 #include "gensign/clamavsig.hpp"
+#include "environment_test.hpp"
 
 TEST(GenerateSig, ClamavSig){
 	const char * sig = "1cb223b8329ab8b4232:23235:Trojan-Smartor";
@@ -28,6 +29,7 @@ int _tmain(int argc, char  **argv)
 {
 	
 	::testing::InitGoogleTest(&argc, argv);
+  ::testing::AddGlobalTestEnvironment( new SystemTestingEnvironment(argc, argv));
 	return RUN_ALL_TESTS();
 }
 
