@@ -2,7 +2,7 @@
 #define PARSER_CLAMVASIG_HPP
 
 /*
-* Copyright 2014 MTSec, Inc.
+* Copyright 2014 Chatsiri Rattana.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -34,6 +34,8 @@
 #include <stdint.h>
 
 #include "logger/logging.hpp"
+#include "utils/file_handler.hpp"
+#include "utils/base/common.hpp"
 
 namespace parser
 {
@@ -41,6 +43,8 @@ namespace parser
 
 
     struct meta_sigparse {
+				//meta_sigparse() : md5(""), size(""), virname(""){ }
+				void clear(){  md5 = std::string(""); size = std::string(""); virname = std::string(""); }
         std::string md5;
         std::string size;
         std::string virname;
@@ -52,6 +56,8 @@ namespace parser
     {
 
         public:
+						virtual bool parse_file_sig(const char * file_path, std::vector<meta_sigparse*> * msig_vec) = 0; 
+ 
             virtual bool parser_sig(const char *sig) = 0;
 
             virtual meta_sigparse get_parser_sig() const = 0;
@@ -71,7 +77,12 @@ namespace parser
 
             typedef std::string::const_iterator iterator_type;
 
+	     			typedef boost::shared_ptr<utils::meta_sig> msig_ptr;
+
             clamav_sig() : result_parse('\0') { }
+
+						virtual bool parse_file_sig(const char *file_path, std::vector<meta_sigparse*> * msig_vec);
+
 
             virtual bool parser_sig(const char *sig);
 
@@ -96,7 +107,10 @@ namespace parser
         protected:
             meta_sigparse meta_sigparse_;
             const char *result_parse;
-
+				    utils::file_stream_handler<utils::common_filetype> fs_handler;
+				private :
+						//std::vector<msig_ptr> * msig_vec;
+						//std::vector<meta_sigparse*>  msig_vec;					
     };
 
     //_________________ Clamav Daily Signature Parser ______________//
